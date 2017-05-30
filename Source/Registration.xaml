@@ -1,0 +1,55 @@
+﻿<Window x:Class="Registration_Form.Registration" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Registration form" 
+        Height="420" 
+        Width="500" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        Icon="Images/registration.ico">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/background.jpg"/>
+    </Window.Background>
+    <DockPanel>
+        <Label DockPanel.Dock="Top" Content="Registration of new user..." HorizontalContentAlignment="Left" FontSize="24" Foreground="LightBlue" FontWeight="Bold" Margin="20,5,0,0"/>
+        <!--#region Registration-->
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,50,5">
+                <Label Height="30" Width="130" Foreground="Black" VerticalContentAlignment="Center">Name</Label>
+                <TextBox Name="name" Height="30" Width="200"  VerticalContentAlignment="Center" ToolTip="Enter name" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,50,5">
+                <Label Height="30" Width="130" Foreground="Black" VerticalContentAlignment="Center">Surname</Label>
+                <TextBox Name="surname" Height="30" Width="200" VerticalContentAlignment="Center" ToolTip="Enter surname" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,50,5">
+                <Label Height="30" Width="130" Foreground="Black" VerticalContentAlignment="Center">E-mail</Label>
+                <TextBox Name="email" Height="30" Width="200"  VerticalContentAlignment="Center" ToolTip="Enter e-mail address" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,50,5">
+                <Label Height="30" Width="130" Foreground="Black" VerticalContentAlignment="Center">Username</Label>
+                <TextBox Name="username" Height="30" Width="200" VerticalContentAlignment="Center" ToolTip="Enter username" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,50,5">
+                <Label Height="30" Width="130" Foreground="Black" VerticalContentAlignment="Center">Password</Label>
+                <PasswordBox Name="password1" Height="30" Width="200"  VerticalContentAlignment="Center" ToolTip="Enter password" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,50,0">
+                <Label Height="30" Width="130" Foreground="Black" VerticalContentAlignment="Center">Confirm password</Label>
+                <PasswordBox Name="password2" Height="30" Width="200" VerticalContentAlignment="Center" ToolTip="Re-enter password" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="register"  Height="30" Width="75" Margin="0,20,5,20" Background="PowderBlue" Click="Register_Click" HorizontalAlignment="Right">Register</Button>
+                <Button Name="cancel"  Height="30" Width="75" Margin="0,20,50,20" Background="PowderBlue" Click="Cancel_Click" HorizontalAlignment="Right">Cancel</Button>
+            </StackPanel>
+        </StackPanel>
+        <!--#endregion-->
+        <!--#region Statusbar-->
+        <StatusBar DockPanel.Dock="Top" Height="30" Background="Orange">
+            <StatusBarItem>
+                <Label Content="{Binding  Path=StatusBarString, UpdateSourceTrigger=PropertyChanged}" FontSize="10"/>
+            </StatusBarItem>
+        </StatusBar>
+        <!--#endregion-->
+    </DockPanel>
+</Window>

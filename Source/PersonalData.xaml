@@ -1,0 +1,73 @@
+﻿<Window x:Class="Registration_Form.PersonalData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:Registration_Form"             
+        mc:Ignorable="d"
+        Title="Personal data" 
+        Height="298" 
+        Width="600" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        Icon="Images/personal_data.png"
+        KeyboardNavigation.TabNavigation="Cycle">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/background.jpg" Stretch="Fill"/>
+    </Window.Background>
+    <DockPanel>
+        <Label DockPanel.Dock="Top" ContentStringFormat="Welcome {0}!" Content="{Binding  Text, ElementName=firstName, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Left" FontSize="24" Foreground="LightBlue" FontWeight="Bold" Margin="20,5,0,0"/>
+        <!--#region Personal data-->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="15,0,15,0">
+            <StackPanel  Orientation="Vertical"  >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,5">
+                    <Label Height="30" Width="70" Foreground="Black" VerticalContentAlignment="Center">Name</Label>
+                    <local:DataField x:Name="firstName" Height="30" Width="200" MaxLength="20" VerticalContentAlignment="Center" ToolTip="Enter name"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
+                    <Label Height="30" Width="70" Foreground="Black" VerticalContentAlignment="Center">Surname</Label>
+                    <local:DataField x:Name="surname" Height="30" Width="200" MaxLength="20" VerticalContentAlignment="Center" ToolTip="Enter surname" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
+                    <Label Height="30" Width="70" Foreground="Black" VerticalContentAlignment="Center">Birth date</Label>
+                    <local:BirthDateField x:Name="birth_date" Height="30" Width="200" VerticalContentAlignment="Center" ToolTip="Select birth date" >
+                        <local:BirthDateField.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </local:BirthDateField.Resources>
+                    </local:BirthDateField>
+                </StackPanel>
+             </StackPanel>
+            <StackPanel  Orientation="Vertical" Margin="25,0,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,5">
+                    <Label Height="30" Width="60" Foreground="Black" VerticalContentAlignment="Center">Address</Label>
+                    <local:DataField x:Name="address" Height="30" Width="200" VerticalContentAlignment="Center" ToolTip="Enter address"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
+                    <Label Height="30" Width="60" Foreground="Black" VerticalContentAlignment="Center">E-mail</Label>
+                    <local:DataField x:Name="email" Height="30" Width="200" MaxLength="30" VerticalContentAlignment="Center" ToolTip="Enter e-mail address"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
+                    <Label Height="30" Width="60" Foreground="Black" VerticalContentAlignment="Center">Phone</Label>
+                    <local:DataField x:Name="phone" Height="30" Width="200" MaxLength="20" VerticalContentAlignment="Center" ToolTip="Enter phone number"/>
+                </StackPanel>                
+            </StackPanel>            
+        </StackPanel>        
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,3,25,0">
+            <Button Name="save"  Height="30" Width="75" Margin="0,20,5,20" Background="PowderBlue"  HorizontalAlignment="Right" Click="Update_Click">Update</Button>
+            <Button Name="exit"  Height="30" Width="75" Margin="0,20,0,20" Background="PowderBlue" HorizontalAlignment="Right" Click="Exit_Click">Exit</Button>
+        </StackPanel>
+        <!--#endregion-->
+        <!--#region Statusbar-->
+        <StatusBar DockPanel.Dock="Bottom" Height="30" Background="Orange">
+            <StatusBarItem>
+                <Label Content="{Binding  Path=StatusBarString, UpdateSourceTrigger=PropertyChanged}" FontSize="10"/>
+            </StatusBarItem>
+        </StatusBar>
+        <!--#endregion-->
+    </DockPanel>
+</Window>

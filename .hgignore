@@ -1,0 +1,10 @@
+syntax: glob
+
+.git/
+.vs/
+Source\.vs\
+Source/obj/
+Source/bin/
+Tests/bin/
+Tests/obj/
+Tests/.vs/
